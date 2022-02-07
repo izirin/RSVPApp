@@ -35,6 +35,7 @@ namespace RSVPApp.Mi
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseRouting();
+
             app.UseEndpoints(routes =>
             {
                 routes.MapControllerRoute(
