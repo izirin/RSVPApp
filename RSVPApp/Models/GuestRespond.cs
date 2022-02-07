@@ -10,6 +10,7 @@ namespace RSVPApp.Models
 
         }
         public DbSet<GuestRespond> GuestRespond { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             if (!options.IsConfigured)
