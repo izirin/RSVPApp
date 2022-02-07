@@ -1,8 +1,27 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 namespace RSVPApp.Models
 {
+    public class RSVPContext : DbContext
+    {
+        public RSVPContext(){}
+        public RSVPContext(DbContextOptions<RSVPContext> options) : base(options)
+        {
+
+        }
+        public DbSet<GuestRespond> GuestRespond { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlServer(@"Server=JRFZN53;Database=RSVP;Trusted_Connection=True;ConnectRetryCount=0");
+            }
+        }
+
+    }
     public class GuestRespond
     {
+        public int GuestRespondId { get; set; }
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Please enter your email")]

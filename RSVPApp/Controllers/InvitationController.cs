@@ -6,7 +6,7 @@ namespace RSVPApp.Controllers
 {
     public class InvitationController : Controller
     {
-
+        private RSVPContext _context;
         public ViewResult Index()
         {
             return View();
