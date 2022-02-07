@@ -39,7 +39,7 @@ namespace RSVPApp.Mi
             {
                 routes.MapControllerRoute(
                     "default",
-                    "{controller=GuestResponds}/{action=Create}/{id?}");
+                    "{controller=GuestResponds}/{action=Index}/{id?}");
             });
         }
     }

@@ -10,6 +10,7 @@ namespace RSVPApp.Models
 
         }
         public DbSet<GuestRespond> GuestRespond { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             if (!options.IsConfigured)
@@ -24,6 +25,7 @@ namespace RSVPApp.Models
         public int GuestRespondId { get; set; }
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")]
         [Required(ErrorMessage = "Please enter your email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter your phone")]
